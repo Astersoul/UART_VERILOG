@@ -2,7 +2,7 @@
 # UART Design
 
 ## Overview
-A UART transmitter and receiver designed using Verilog/SystemVerilog.
+A UART transmitter and receiver designed using Verilog.
 
 ## Features
 - UART transmitter
@@ -17,13 +17,13 @@ A UART transmitter and receiver designed using Verilog/SystemVerilog.
 [waveform screenshot]
 
 ## Tools Used
-- Verilog/SystemVerilog
+- Verilog
 - Synopsys EDA
 - Linux
 - Git/GitHub
 
 ## Project Report
-See `report/UART_Final_Report.pdf`.
+See `UART report upaasana_dash2`.
 
 ## Author
-Your Name
+Dpaasana Dash
