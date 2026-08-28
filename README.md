@@ -23,7 +23,7 @@ A UART transmitter and receiver designed using Verilog.
 - Git/GitHub
 
 ## Project Report
-See `UART report upaasana_dash2`.
+See `UART_overall_project report`.
 
 ## Author
-Dpaasana Dash
+Upaasana Dash
