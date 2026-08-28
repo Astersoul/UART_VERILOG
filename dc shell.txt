@@ -1,0 +1,884 @@
+dc shell
+
+[iter4@taradash sysnthesis]$ ls
+baud_gen.v   filenames.log  tb_uart_rx.v   tb_uart_tx.v  uart_top.v
+command.log  tb_baud_gen.v  tb_uart_top.v  uart_rx.v     uart_tx.v
+[iter4@taradash sysnthesis]$ dc_shell
+bash: dc_shell: command not found
+[iter4@taradash sysnthesis]$ source /home/iter_work/tool_bash
+Welcome to Tools
+[iter4@taradash sysnthesis]$ dc_shell
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version W-2024.09-SP3 for linux64 - Jan 08, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Sat Aug  8 10:26:53 2026
+Hostname:           taradash.soa.ac.in
+CPU Model:          Intel(R) Xeon(R) CPU E5-2660 v2 @ 2.20GHz
+CPU Details:        Cores = 40 : Sockets = 2 : Cache Size = 25600 KB : Freq = 3.00 GHz
+OS:                 Linux 4.18.0-553.144.1.el8_10.x86_64
+RAM:                 62 GB (Free   0 GB)
+Swap:                31 GB (Free  30 GB)
+Work Filesystem:    /home mounted to /dev/mapper/rl-home
+Tmp Filesystem:     /tmp mounted to tmpfs
+Work Disk:          2130 GB (Free 905 GB)
+Tmp Disk:            31 GB (Free  30 GB)
+
+CPU Load: 6%, Ram Free: 0 GB, Swap Free: 30 GB, Work Disk Free: 905 GB, Tmp Disk Free: 30 GB
+dc_shell> set link_library {* /home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db}
+* /home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db
+dc_shell> 
+dc_shell> set link_library {* /home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db}
+* /home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db
+dc_shell> set target_library {/home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db}
+/home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db
+dc_shell> analyze -library WORK -format
+Error: value not specified for option '-format' (CMD-008)
+dc_shell> analyze -library WORK -format sverilog /home/iter_work/iter4/upaasana_dash/fa_synthesis/top.sv
+Running PRESTO HDLC
+Compiling source file /home/iter_work/iter4/upaasana_dash/fa_synthesis/top.sv
+Error:  /home/iter_work/iter4/upaasana_dash/fa_synthesis/top.sv:2: Unable to open file `uvm_pkg.pvk': in search_path {/home/iter_work/iter4/upaasana_dash/UART_sysnthesis/sysnthesis . /home/Tools/synopsys/tool/install/syn/W-2024.09-SP3/libraries/syn /home/Tools/synopsys/tool/install/syn/W-2024.09-SP3/dw/syn_ver /home/Tools/synopsys/tool/install/syn/W-2024.09-SP3/dw/sim_ver}. (VER-292)
+Error:  /home/iter_work/iter4/upaasana_dash/fa_synthesis/top.sv:2: Package 'uvm_pkg' has not been analyzed for import or content extraction. (VER-224)
+Opening include file uvm_macros.svh
+Error:  /home/iter_work/iter4/upaasana_dash/fa_synthesis/top.sv:3: Unable to open file `uvm_macros.svh': No such file or directory. (VER-41)
+*** Presto compilation terminated with 3 errors. ***
+Loading db file '/home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db'
+0
+dc_shell> analyze -library WORK -format sverilog /home/iter_work/iter4/upaasana_dash/UART_sysnthesis/sysnthesis/
+Running PRESTO HDLC
+Compiling source file /home/iter_work/iter4/upaasana_dash/UART_sysnthesis/sysnthesis/
+Presto compilation completed successfully.
+1
+dc_shell> analyze -library WORK -format sverilog /home/iter_work/iter4/upaasana_dash/UART_sysnthesis/sysnthesis/uart_top.v
+Running PRESTO HDLC
+Compiling source file /home/iter_work/iter4/upaasana_dash/UART_sysnthesis/sysnthesis/uart_top.v
+Presto compilation completed successfully.
+1
+dc_shell> elaborate uart_top
+Loading db file '/home/Tools/synopsys/tool/install/syn/W-2024.09-SP3/libraries/syn/gtech.db'
+Loading db file '/home/Tools/synopsys/tool/install/syn/W-2024.09-SP3/libraries/syn/standard.sldb'
+  Loading link library 'saed32rvt_tt0p85v25c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (uart_top)
+Module: uart_top, Ports: 22, Input: 11, Output: 11, Inout: 0
+Module: uart_top, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module uart_top report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'uart_top'.
+Information: Building the design 'baud_gen' instantiated from design 'uart_top' with
+	the parameters "CLK_FREQ=50000000,BAUD_RATE=9600". (HDL-193)
+Warning: Cannot find the design 'baud_gen' in the library 'WORK'. (LBR-1)
+Information: Building the design 'uart_tx'. (HDL-193)
+Warning: Cannot find the design 'uart_tx' in the library 'WORK'. (LBR-1)
+Information: Building the design 'uart_rx'. (HDL-193)
+Warning: Cannot find the design 'uart_rx' in the library 'WORK'. (LBR-1)
+Warning: Design 'uart_top' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+dc_shell> get_port
+{tx_data[7] tx_data[6] tx_data[5] tx_data[4] tx_data[3] tx_data[2] tx_data[1] tx_data[0] rx_data[7] rx_data[6] rx_data[5] rx_data[4] rx_data[3] rx_data[2] rx_data[1] rx_data[0] clk rst_n tx_start rx_done tx tx_busy}
+dc_shell> get_pin
+{BG/clk BG/rst_n BG/baud_tick TX/clk TX/rst_n TX/baud_tick TX/tx_start TX/tx_data[7] TX/tx_data[6] TX/tx_data[5] TX/tx_data[4] TX/tx_data[3] TX/tx_data[2] TX/tx_data[1] TX/tx_data[0] TX/tx TX/busy RX/clk RX/rst_n RX/baud_tick RX/rx RX/rx_data[7] RX/rx_data[6] RX/rx_data[5] RX/rx_data[4] RX/rx_data[3] RX/rx_data[2] RX/rx_data[1] RX/rx_data[0] RX/rx_done}
+
+Module: DW01_inc_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
+Module: DW01_inc_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Changed wire load model for 'DW01_inc_width3' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for '*ADD_UNS_OP_3_1_3' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'DW01_inc_width3' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for '*ADD_UNS_OP_3_1_3' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'DW01_inc_width15' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for '*ADD_UNS_OP_15_1_15' from '(none)' to 'ForQA'. (OPT-170)
+Information: Updating design information... (UID-85)
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Warning: The following end-points are not constrained for maximum delay.
+
+End point
+---------------
+BG/baud_tick_reg/next_state
+BG/count_reg[0]/next_state
+BG/count_reg[1]/next_state
+BG/count_reg[2]/next_state
+BG/count_reg[3]/next_state
+BG/count_reg[4]/next_state
+BG/count_reg[5]/next_state
+BG/count_reg[6]/next_state
+BG/count_reg[7]/next_state
+BG/count_reg[8]/next_state
+BG/count_reg[9]/next_state
+BG/count_reg[10]/next_state
+BG/count_reg[11]/next_state
+BG/count_reg[12]/next_state
+BG/count_reg[13]/next_state
+BG/count_reg[14]/next_state
+RX/bit_count_reg[0]/next_state
+RX/bit_count_reg[0]/synch_enable
+RX/bit_count_reg[1]/next_state
+RX/bit_count_reg[1]/synch_enable
+RX/bit_count_reg[2]/next_state
+RX/bit_count_reg[2]/synch_enable
+RX/rx_data_reg[0]/next_state
+RX/rx_data_reg[0]/synch_enable
+RX/rx_data_reg[1]/next_state
+RX/rx_data_reg[1]/synch_enable
+RX/rx_data_reg[2]/next_state
+RX/rx_data_reg[2]/synch_enable
+RX/rx_data_reg[3]/next_state
+RX/rx_data_reg[3]/synch_enable
+RX/rx_data_reg[4]/next_state
+RX/rx_data_reg[4]/synch_enable
+RX/rx_data_reg[5]/next_state
+RX/rx_data_reg[5]/synch_enable
+RX/rx_data_reg[6]/next_state
+RX/rx_data_reg[6]/synch_enable
+RX/rx_data_reg[7]/next_state
+RX/rx_data_reg[7]/synch_enable
+RX/rx_done_reg/next_state
+RX/shift_reg_reg[0]/next_state
+RX/shift_reg_reg[0]/synch_enable
+RX/shift_reg_reg[1]/next_state
+RX/shift_reg_reg[1]/synch_enable
+RX/shift_reg_reg[2]/next_state
+RX/shift_reg_reg[2]/synch_enable
+RX/shift_reg_reg[3]/next_state
+RX/shift_reg_reg[3]/synch_enable
+RX/shift_reg_reg[4]/next_state
+RX/shift_reg_reg[4]/synch_enable
+RX/shift_reg_reg[5]/next_state
+RX/shift_reg_reg[5]/synch_enable
+RX/shift_reg_reg[6]/next_state
+RX/shift_reg_reg[6]/synch_enable
+RX/shift_reg_reg[7]/next_state
+RX/shift_reg_reg[7]/synch_enable
+RX/state_reg[0]/next_state
+RX/state_reg[0]/synch_enable
+RX/state_reg[1]/next_state
+RX/state_reg[1]/synch_enable
+RX/state_reg[2]/next_state
+RX/state_reg[2]/synch_enable
+TX/bit_count_reg[0]/next_state
+TX/bit_count_reg[0]/synch_enable
+TX/bit_count_reg[1]/next_state
+TX/bit_count_reg[1]/synch_enable
+TX/bit_count_reg[2]/next_state
+TX/bit_count_reg[2]/synch_enable
+TX/busy_reg/next_state
+TX/busy_reg/synch_enable
+TX/shift_reg_reg[0]/next_state
+TX/shift_reg_reg[0]/synch_enable
+TX/shift_reg_reg[1]/next_state
+TX/shift_reg_reg[1]/synch_enable
+TX/shift_reg_reg[2]/next_state
+TX/shift_reg_reg[2]/synch_enable
+TX/shift_reg_reg[3]/next_state
+TX/shift_reg_reg[3]/synch_enable
+TX/shift_reg_reg[4]/next_state
+TX/shift_reg_reg[4]/synch_enable
+TX/shift_reg_reg[5]/next_state
+TX/shift_reg_reg[5]/synch_enable
+TX/shift_reg_reg[6]/next_state
+TX/shift_reg_reg[6]/synch_enable
+TX/shift_reg_reg[7]/next_state
+TX/shift_reg_reg[7]/synch_enable
+TX/state_reg[0]/next_state
+TX/state_reg[0]/synch_enable
+TX/state_reg[1]/next_state
+TX/state_reg[1]/synch_enable
+TX/tx_reg/next_state
+TX/tx_reg/synch_enable
+rx_data[0]
+rx_data[1]
+rx_data[2]
+rx_data[3]
+rx_data[4]
+rx_data[5]
+rx_data[6]
+rx_data[7]
+rx_done
+tx
+tx_busy
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+Current design is 'uart_top'.
+dc_shell> dc_shell> compile
+CPU Load: 3%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.3 |     *     |
+| Licensed DW Building Blocks        |                         |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+| Command Line | compile_ultra                                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 197                                    |
+| Number of User Hierarchies                              | 3                                      |
+| Sequential Cell Count                                   | 54                                     |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 39                                     |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 3 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'uart_rx'
+Module: DW01_inc_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
+Module: DW01_inc_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'uart_tx'
+  Processing 'baud_gen_CLK_FREQ50000000_BAUD_RATE9600'
+  Processing 'uart_top'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+Module: DW01_inc_width15, Ports: 30, Input: 15, Output: 15, Inout: 0
+Module: DW01_inc_width15, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'baud_gen_CLK_FREQ50000000_BAUD_RATE9600_DW01_inc_0_DW01_inc_2'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02     879.8      0.00       0.0       1.9                          
+    0:00:02     879.8      0.00       0.0       1.9                          
+    0:00:02     879.8      0.00       0.0       1.9                          
+    0:00:02     879.8      0.00       0.0       1.9                          
+    0:00:02     879.8      0.00       0.0       1.9                          
+    0:00:02     731.7      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     730.2      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+    0:00:02     725.1      0.00       0.0       0.0                          
+Loading db file '/home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 3%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+Current design is 'uart_top'.
+dc_shell> dc_shell> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : uart_top
+Version: W-2024.09-SP3
+Date   : Sat Aug  8 11:29:29 2026
+****************************************
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: TX/tx_reg (rising edge-triggered flip-flop)
+  Endpoint: tx (output port clocked by clk)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  uart_tx            8000                  saed32rvt_tt0p85v25c
+  uart_top           8000                  saed32rvt_tt0p85v25c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  TX/tx_reg/CLK (DFFASX1_RVT)              0.00       0.00 r
+  TX/tx_reg/Q (DFFASX1_RVT)                0.19       0.19 f
+  TX/tx (uart_tx)                          0.00       0.19 f
+  tx (out)                                 0.00       0.19 f
+  data arrival time                                   0.19
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+dc_shell> compile_ultra
+Information: Failed to find dw_foundation.sldb in the user defined search_path, load it from 'Synopsys Root'. (UISN-70)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 4%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.3 |     *     |
+| Licensed DW Building Blocks        | W-2024.09-DWBB_202409.3 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Command Line | compile_ultra                                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 210                                    |
+| Number of User Hierarchies                              | 4                                      |
+| Sequential Cell Count                                   | 54                                     |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'uart_top'
+
+Loading db file '/home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db'
+Information: Ungrouping hierarchy BG before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy TX before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy RX before Pass 1 (OPT-776)
+Information: Ungrouping 3 of 5 hierarchies before Pass 1 (OPT-775)
+CPU Load: 4%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'uart_top'
+ Implement Synthetic for 'uart_top'.
+  Processing 'baud_gen_CLK_FREQ50000000_BAUD_RATE9600_DW01_inc_0_DW01_inc_2'
+CPU Load: 4%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt0p85v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt0p85v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt0p85v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt0p85v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt0p85v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt0p85v25c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: There is no timing violation in design uart_top. Delay-based auto_ungroup will not be performed. (OPT-780)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04     808.9      0.00       0.0       0.0                           38182644.0000
+    0:00:04     807.7      0.00       0.0       0.0                           38169692.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+    0:00:04     807.7      0.00       0.0       0.0                           38169692.0000
+    0:00:04     807.7      0.00       0.0       0.0                           38169692.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+  Global Optimization (Phase 51)
+  Global Optimization (Phase 52)
+  Global Optimization (Phase 53)
+  Global Optimization (Phase 54)
+  Global Optimization (Phase 55)
+  Global Optimization (Phase 56)
+  Global Optimization (Phase 57)
+  Global Optimization (Phase 58)
+  Global Optimization (Phase 59)
+  Global Optimization (Phase 60)
+  Global Optimization (Phase 61)
+  Global Optimization (Phase 62)
+  Global Optimization (Phase 63)
+  Global Optimization (Phase 64)
+  Global Optimization (Phase 65)
+  Global Optimization (Phase 66)
+  Global Optimization (Phase 67)
+  Global Optimization (Phase 68)
+  Global Optimization (Phase 69)
+  Global Optimization (Phase 70)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:04     704.0      0.00       0.0       0.0                           21070822.0000
+    0:00:04     704.0      0.00       0.0       0.0                           21070822.0000
+    0:00:04     704.0      0.00       0.0       0.0                           21070822.0000
+    0:00:04     704.0      0.00       0.0       0.0                           21070822.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+    0:00:04     703.5      0.00       0.0       0.0                           21054278.0000
+    0:00:04     703.5      0.00       0.0       0.0                           21054278.0000
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:04     691.5      0.00       0.0       0.0                           19716532.0000
+    0:00:04     691.5      0.00       0.0       0.0                           19716532.0000
+    0:00:04     691.5      0.00       0.0       0.0                           19716532.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:04     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:05     690.5      0.00       0.0       0.0                           19433172.0000
+    0:00:05     690.5      0.00       0.0       0.0                           19433172.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05     690.5      0.00       0.0       0.0                           19433172.0000
+  Global Optimization (Phase 71)
+  Global Optimization (Phase 72)
+  Global Optimization (Phase 73)
+  Global Optimization (Phase 74)
+  Global Optimization (Phase 75)
+  Global Optimization (Phase 76)
+  Global Optimization (Phase 77)
+  Global Optimization (Phase 78)
+  Global Optimization (Phase 79)
+  Global Optimization (Phase 80)
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+    0:00:05     688.5      0.00       0.0       0.0                           19313640.0000
+CPU Load: 4%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+Loading db file '/home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+CPU Load: 4%, Ram Free: 1 GB, Swap Free: 30 GB, Work Disk Free: 887 GB, Tmp Disk Free: 30 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+Current design is 'uart_top'.
+dc_shell> dc_shell> report_area
+ 
+****************************************
+Report : area
+Design : uart_top
+Version: W-2024.09-SP3
+Date   : Sat Aug  8 11:29:58 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db)
+
+Number of ports:                           22
+Number of nets:                           220
+Number of cells:                          198
+Number of combinational cells:            144
+Number of sequential cells:                54
+Number of macros/black boxes:               0
+Number of buf/inv:                         31
+Number of references:                      22
+
+Combinational area:                304.210372
+Buf/Inv area:                       43.204481
+Noncombinational area:             384.265735
+Macro/Black Box area:                0.000000
+Net Interconnect area:             126.013993
+
+Total cell area:                   688.476107
+Total area:                        814.490100
+1
+dc_shell> report_qor
+ 
+****************************************
+Report : qor
+Design : uart_top
+Version: W-2024.09-SP3
+Date   : Sat Aug  8 11:30:09 2026
+****************************************
+
+
+  Timing Path Group (none)
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.19
+  Critical Path Slack:         uninit
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:                198
+  Buf/Inv Cell Count:              31
+  Buf Cell Count:                   5
+  Inv Cell Count:                  26
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:       144
+  Sequential Cell Count:           54
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:      304.210372
+  Noncombinational Area:   384.265735
+  Buf/Inv Area:             43.204481
+  Total Buffer Area:            10.17
+  Total Inverter Area:          33.04
+  Macro/Black Box Area:      0.000000
+  Net Area:                126.013993
+  -----------------------------------
+  Cell Area:               688.476107
+  Design Area:             814.490100
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:           220
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: taradash.soa.ac.in
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.22
+  Mapping Optimization:                0.48
+  -----------------------------------------
+  Overall Compile Time:                7.56
+  Overall Compile Wall Clock Time:     8.14
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
+dc_shell> get_cells
+{BG/baud_tick_reg BG/count_reg[14] BG/count_reg[13] BG/count_reg[12] BG/count_reg[11] BG/count_reg[10] BG/count_reg[9] BG/count_reg[8] BG/count_reg[7] BG/count_reg[6] BG/count_reg[5] BG/count_reg[4] BG/count_reg[3] BG/count_reg[2] BG/count_reg[1] BG/count_reg[0] TX/tx_reg TX/shift_reg_reg[0] TX/shift_reg_reg[1] TX/shift_reg_reg[2] TX/shift_reg_reg[3] TX/shift_reg_reg[4] TX/shift_reg_reg[5] TX/shift_reg_reg[6] TX/shift_reg_reg[7] TX/bit_count_reg[1] TX/bit_count_reg[0] TX/busy_reg TX/state_reg[1] TX/bit_count_reg[2] TX/state_reg[0] RX/rx_done_reg RX/rx_data_reg[0] RX/shift_reg_reg[0] RX/rx_data_reg[1] RX/shift_reg_reg[1] RX/rx_data_reg[2] RX/shift_reg_reg[2] RX/rx_data_reg[3] RX/shift_reg_reg[3] RX/rx_data_reg[4] RX/shift_reg_reg[4] RX/rx_data_reg[5] RX/shift_reg_reg[5] RX/rx_data_reg[6] RX/shift_reg_reg[6] RX/rx_data_reg[7] RX/shift_reg_reg[7] RX/bit_count_reg[1] RX/state_reg[2] RX/state_reg[1] RX/state_reg[0] RX/bit_count_reg[2] RX/bit_count_reg[0] U123 U124 U125 U126 U127 U128 U129 U130 U131 U132 U133 U134 U135 U136 U137 U138 U139 U140 U141 U142 U143 U144 U145 U146 U147 U148 U149 U150 U151 U152 U153 U154 U155 U156 U157 U158 U159 U160 U161 U162 U163 U164 U165 U166 U167 U168 ...}
+dc_shell> size_cells [get_cells ]
+Error: unknown command 'size_cells' (CMD-005)
+dc_shell> sizeof_collection [get_cells ]
+198
+dc_shell> sizeof_collection [all_registers ]
+54
+dc_shell>  all_registers
+{RX/bit_count_reg[0] RX/bit_count_reg[2] RX/state_reg[0] RX/state_reg[1] RX/state_reg[2] RX/bit_count_reg[1] RX/shift_reg_reg[7] RX/rx_data_reg[7] RX/shift_reg_reg[6] RX/rx_data_reg[6] RX/shift_reg_reg[5] RX/rx_data_reg[5] RX/shift_reg_reg[4] RX/rx_data_reg[4] RX/shift_reg_reg[3] RX/rx_data_reg[3] RX/shift_reg_reg[2] RX/rx_data_reg[2] RX/shift_reg_reg[1] RX/rx_data_reg[1] RX/shift_reg_reg[0] RX/rx_data_reg[0] RX/rx_done_reg TX/state_reg[0] TX/bit_count_reg[2] TX/state_reg[1] TX/busy_reg TX/bit_count_reg[0] TX/bit_count_reg[1] TX/shift_reg_reg[7] TX/shift_reg_reg[6] TX/shift_reg_reg[5] TX/shift_reg_reg[4] TX/shift_reg_reg[3] TX/shift_reg_reg[2] TX/shift_reg_reg[1] TX/shift_reg_reg[0] TX/tx_reg BG/count_reg[0] BG/count_reg[1] BG/count_reg[2] BG/count_reg[3] BG/count_reg[4] BG/count_reg[5] BG/count_reg[6] BG/count_reg[7] BG/count_reg[8] BG/count_reg[9] BG/count_reg[10] BG/count_reg[11] BG/count_reg[12] BG/count_reg[13] BG/count_reg[14] BG/baud_tick_reg}
+dc_shell> write_file -format verilog -hierarchy -output uart_synthesized.ddc
+Writing verilog file '/home/iter_work/iter4/upaasana_dash/UART_sysnthesis/sysnthesis/uart_synthesized.ddc'.
+1
+dc_shell>   write_sdc uart_constraints.sdc
+1
+dc_shell>  report_power
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : uart_top
+Version: W-2024.09-SP3
+Date   : Sat Aug  8 11:33:07 2026
+****************************************
+
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/iter_work/KIT/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db)
+
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+uart_top               8000              saed32rvt_tt0p85v25c
+
+
+Global Operating Voltage = 0.85 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =   7.7455 uW   (81%)
+  Net Switching Power  =   1.7611 uW   (19%)
+                         ---------
+Total Dynamic Power    =   9.5066 uW  (100%)
+
+Cell Leakage Power     =  16.7743 uW
+
+Information: report_power power group summary does not include estimated clock tree power. (PWR-789)
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)  i
+register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
+sequential         6.5973        7.4641e-02        1.2380e+07           19.0524  (  72.50%)
+combinational      1.1482            1.6865        4.3938e+06            7.2284  (  27.50%)
+--------------------------------------------------------------------------------------------------
+Total              7.7455 uW         1.7611 uW     1.6774e+07 pW        26.2809 uW
+1
+dc_shell> 
+
